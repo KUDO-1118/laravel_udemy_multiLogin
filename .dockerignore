@@ -1,0 +1,6 @@
+# MySQL database files
+mysql/
+mysql/#*
+
+# Nginx logs
+nginx/logs/
