@@ -103,3 +103,5 @@
 192.168.65.1 - - [01/Nov/2024:06:31:03 +0000] "GET /component-test1 HTTP/1.1" 200 65942 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [01/Nov/2024:06:31:37 +0000] "GET /component-test1 HTTP/1.1" 200 65972 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [01/Nov/2024:06:34:23 +0000] "GET /component-test1 HTTP/1.1" 200 65918 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+192.168.65.1 - - [01/Nov/2024:07:04:03 +0000] "GET /component-test1 HTTP/1.1" 200 66362 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+192.168.65.1 - - [01/Nov/2024:07:04:03 +0000] "GET /js/app.js HTTP/1.1" 200 724847 "http://localhost/component-test1" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
