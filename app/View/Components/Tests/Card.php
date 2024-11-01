@@ -8,11 +8,13 @@ class Card extends Component
 {
     public $title;
     public $content;
+    public $message;
 
-    public function __construct($title = null, $content = null)
+    public function __construct($title = null, $content = null, $message = null)
     {
         $this->title = $title;
         $this->content = $content;
+        $this->message = $message;
     }
 
     public function render()
