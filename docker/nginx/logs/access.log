@@ -124,3 +124,4 @@
 192.168.65.1 - - [02/Nov/2024:02:54:29 +0000] "GET /serveiceprovidertest HTTP/1.1" 500 33700 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [02/Nov/2024:02:56:10 +0000] "GET /serveiceprovidertest HTTP/1.1" 500 33700 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [02/Nov/2024:02:57:02 +0000] "GET /serveiceprovidertest HTTP/1.1" 500 50540 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+192.168.65.1 - - [03/Nov/2024:00:07:11 +0000] "GET /serveiceprovidertest HTTP/1.1" 500 50549 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
