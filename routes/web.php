@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ComponentTestController;
+use App\Http\Controllers\LifeCycleTestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,5 +17,25 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.welcome');
 });
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+Route::get('/dashboard', function () {
+    return view('user.dashboard');
+})->middleware(['auth:users'])->name('dashboard');
+
+Route::get('/component-test1', [ComponentTestController::class, 'showComponent1']);
+
+Route::get('/component-test2', [ComponentTestController::class, 'showComponent2']);
+
+Route::get('/serveicecontainertest', [LifeCycleTestController::class, 'showServiceContainerTest']);
+
+Route::get('/serveiceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']);
+
+require __DIR__.'/auth.php';
+=======
+>>>>>>> e8c69f80843a4e10468cb054cf10c101cf150b67
+=======
+>>>>>>> main

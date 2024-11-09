@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => env('APP_NAME', 'MultiLogin_Umarche'),
+    // env(引数１,引数２)へルパ関数.envのAPP_NAMEを取得する引数１がなかった場合引数２を表示させる
 
     /*
     |--------------------------------------------------------------------------
@@ -174,6 +175,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        App\Providers\SampleServiceProvider::class,
 
     ],
 

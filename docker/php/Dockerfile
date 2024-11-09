@@ -30,4 +30,7 @@ RUN npm --version
 
 WORKDIR /src
 ADD . /src/storage
+
+RUN composer install --no-dev --optimize-autoloader
+
 RUN chown -R www-data:www-data /src/storage
