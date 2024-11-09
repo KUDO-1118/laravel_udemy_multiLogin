@@ -349,3 +349,4 @@
 192.168.65.1 - - [09/Nov/2024:09:05:15 +0000] "POST /admin/login HTTP/1.1" 302 398 "http://localhost/admin/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [09/Nov/2024:09:05:15 +0000] "GET /admin/owners/index HTTP/1.1" 200 54545 "http://localhost/admin/login" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 192.168.65.1 - - [09/Nov/2024:09:06:02 +0000] "GET /admin/owners HTTP/1.1" 500 89235 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
+192.168.65.1 - - [09/Nov/2024:09:36:32 +0000] "GET /admin/owners HTTP/1.1" 200 89277 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
