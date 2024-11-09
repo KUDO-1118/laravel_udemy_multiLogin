@@ -20,6 +20,7 @@ Route::get('/', function () {
     return view('user.welcome');
 });
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 Route::get('/dashboard', function () {
     return view('user.dashboard');
@@ -36,3 +37,5 @@ Route::get('/serveiceprovidertest', [LifeCycleTestController::class, 'showServic
 require __DIR__.'/auth.php';
 =======
 >>>>>>> e8c69f80843a4e10468cb054cf10c101cf150b67
+=======
+>>>>>>> main
