@@ -19,6 +19,7 @@ use App\Http\Controllers\LifeCycleTestController;
 Route::get('/', function () {
     return view('user.welcome');
 });
+<<<<<<< HEAD
 
 Route::get('/dashboard', function () {
     return view('user.dashboard');
@@ -33,3 +34,5 @@ Route::get('/serveicecontainertest', [LifeCycleTestController::class, 'showServi
 Route::get('/serveiceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']);
 
 require __DIR__.'/auth.php';
+=======
+>>>>>>> e8c69f80843a4e10468cb054cf10c101cf150b67
