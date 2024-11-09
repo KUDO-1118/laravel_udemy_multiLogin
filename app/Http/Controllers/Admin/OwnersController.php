@@ -29,14 +29,16 @@ class OwnersController extends Controller
         echo $date_parse;
 
         $e_all = Owner::all();
-        $q_get = DB::table('owners')->select('name')->get();
-        $q_first = DB::table('owners')->select('name')->first();
+        $q_get = DB::table('owners')->select('name', 'created_at')->get();
+        // $q_first = DB::table('owners')->select('name')->first();
 
-        $c_test = collect([
-            'name' => 'てすと'
-        ]);
+        // $c_test = collect([
+        //     'name' => 'てすと'
+        // ]);
 
-        dd($e_all, $q_get, $q_first, $c_test);
+        // dd($e_all, $q_get, $q_first, $c_test);
+        return view('admin.owners.index',
+         compact('e_all', 'q_get')); //変数をview側に渡す場合はcompact()を使い、変数を文字列で渡す
     }
 
     /**
