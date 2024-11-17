@@ -27,7 +27,7 @@
                     {{ Carbon\Carbon::parse($q_owner->created_at)->diffForHumans() }} --}}
                     {{-- $q_owner->created_at->diffForHumans()はカーボンでないというエラーになる --}}
 
-                  @endforeach
+                  {{-- @endforeach --}}
               </div>
           </div>
       </div>
