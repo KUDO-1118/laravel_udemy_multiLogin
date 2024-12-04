@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner; // Eloquent エロくアント
-use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
-use Illuminate\Support\Carbon; // PHPのDateTimeクラスを拡張した日付ライブラリ(Laravel標準搭載)
+// use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
+// use Illuminate\Support\Carbon; // PHPのDateTimeクラスを拡張した日付ライブラリ(Laravel標準搭載)
 
 class OwnersController extends Controller
 {
@@ -18,13 +18,13 @@ class OwnersController extends Controller
 
     public function index()
     {
-        $date_now = Carbon::now();
-        $date_parse = Carbon::parse();
-        echo $date_now;
-        echo $date_parse;
+        // $date_now = Carbon::now();
+        // $date_parse = Carbon::parse();
+        // echo $date_now;
+        // echo $date_parse;
 
-        $e_all = Owner::all();
-        $q_get = DB::table('owners')->select('name', 'created_at')->get();
+        // $e_all = Owner::all();
+        // $q_get = DB::table('owners')->select('name', 'created_at')->get();
         // $q_first = DB::table('owners')->select('name')->first();
 
         // $c_test = collect([
@@ -34,17 +34,14 @@ class OwnersController extends Controller
         // dd($e_all, $q_get, $q_first, $c_test);
 
         // var_dump($q_first);
-        return view('admin.owners.index', compact('e_all', 'q_get'));
+        $owners = Owner::select('name', 'email', 'created_at')->get();
+        return view('admin.owners.index', compact('owners'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
+        return view('admin.owners.create');
     }
 
     /**
