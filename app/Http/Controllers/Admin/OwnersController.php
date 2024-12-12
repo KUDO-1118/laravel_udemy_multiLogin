@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Owner; // Eloquent エロくアント
+use App\Models\Shop;
 use Illuminate\Support\Composer;
-// use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
+use Illuminate\Support\Facades\DB; // QueryBuilder クエリビルダ
 // use Illuminate\Support\Carbon; // PHPのDateTimeクラスを拡張した日付ライブラリ(Laravel標準搭載)
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Log;
+use Throwable;
 
 class OwnersController extends Controller
 {
@@ -61,11 +63,26 @@ class OwnersController extends Controller
             'password' => 'required|string|confirmed|min:8'
         ]);
 
-        Owner::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-        ]);
+        try{
+            DB::transaction(function () use($request) {
+                $owner = Owner::create([
+                    'name' => $request->name,//必ず無名関数でuse($request)が必要
+                    'email' => $request->email,//必ず無名関数でuse($request)が必要
+                    'password' => Hash::make($request->password),
+                ]);
+
+                Shop::create([
+                    'owner_id' => $owner->id,
+                    'name' => '店名を入力してください',
+                    'information' => '',
+                    'filename' => '',
+                    'is_selling' => true
+                ]);
+            }, 2);//引数に2を設定すると2回繰り返してくれる
+        }catch(Throwable $e){
+            Log::error($e);
+            throw $e;
+        }
 
         return redirect()
         ->route('admin.owners.index')
