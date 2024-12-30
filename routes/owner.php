@@ -9,6 +9,7 @@ use App\Http\Controllers\Owner\Auth\EmailVerificationPromptController;
 use App\Http\Controllers\Owner\Auth\NewPasswordController;
 use App\Http\Controllers\Owner\ShopController;
 use App\Http\Controllers\Owner\Auth\VerifyEmailController;
+use App\Http\Controllers\Owner\Auth\PasswordResetLinkController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,7 +45,7 @@ Route::middleware('guest')->group(function () {
     Route::post('register', [RegisteredUserController::class, 'store']);
 
     Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('owner.login');
+                ->name('login');
 
     Route::post('login', [AuthenticatedSessionController::class, 'store']);
 

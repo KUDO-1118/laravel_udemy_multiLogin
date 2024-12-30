@@ -15,7 +15,7 @@ class ShopController extends Controller
         $this->middleware('auth:owners');
 
         $this->middleware(function ($request, $next) {
-            dd($request->route()->parameter('shop'));//文字列になっている
+            // dd($request->route()->parameter('shop'));//文字列になっている
             // dd(Auth::id()); //数字
 
             $id = $request->route()->parameter('shop');//shopのid取得
@@ -35,7 +35,14 @@ class ShopController extends Controller
     public function index()
     {
         $ownerId = Auth::id();
+        // dd($ownerId);
+
         $shops = Shop::where('owner_id', $ownerId)->get();
+
+        // foreach ($shops as $shop) {
+
+        //     dd($shop);
+        // }
 
         return view('owner.shops.index', compact('shops'));
     }
