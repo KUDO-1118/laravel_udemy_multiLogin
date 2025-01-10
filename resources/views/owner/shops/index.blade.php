@@ -9,10 +9,9 @@
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
               <div class="p-6 bg-white border-b border-gray-200">
+                <x-flash-message status="session('status')" />
                 @foreach ($shops as $shop)
                     <div class="w-1/2 p-4">
-                        <p>ショップID: {{ $shop->id }}</p>
-                        <p>ショップ名: {{ $shop->name }}</p>
                             <a href="{{ route('owner.shops.edit', ['shop' => $shop->id]) }}">
                                 {{--  ↑ボタンを押下した時に編集画面に遷移する(editを用いるときは必ずパラメータも必要) --}}
                             <div class="border rounded-md p-4">
@@ -24,13 +23,7 @@
                                     @endif
                                 </div>
                                     <div class="text-x1">{{ $shop->name }}</div>
-                                    <div>
-                                        @if(empty($shop->filename))
-                                            <img src="{{ asset('images/no_image.jpg')}}" alt="No Image">
-                                        @else
-                                            <img src="{{ asset('storage/shops/' . $shop->filename)}}" alt="{{ $shop->name }}">
-                                        @endif
-                                    </div>
+                                    <x-shop-thumbnail :filename="$shop->filename"/>
                             </div>
                             </a>
                     </div>
