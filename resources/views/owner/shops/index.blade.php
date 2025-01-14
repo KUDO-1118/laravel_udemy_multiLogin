@@ -23,7 +23,7 @@
                                     @endif
                                 </div>
                                     <div class="text-x1">{{ $shop->name }}</div>
-                                    <x-shop-thumbnail :filename="$shop->filename"/>
+                                    <x-thumbnail :filename="$shop->filename" type="shops" />
                             </div>
                             </a>
                     </div>
