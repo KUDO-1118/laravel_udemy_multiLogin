@@ -65,7 +65,7 @@ class ShopController extends Controller
             // Storage::putFile('public/shops', $imageFile);　リサイズ無しの場合
         }
 
-        $shop = Shop::findOrfail($id);
+        $shop = Shop::findOrFile($id);
         $shop->name = $request->name;
         $shop->information = $request->information;
         $shop->is_selling = $request->is_selling;
