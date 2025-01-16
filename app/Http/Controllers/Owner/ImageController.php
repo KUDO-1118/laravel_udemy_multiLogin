@@ -8,6 +8,7 @@ use App\Models\Image;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UploadImageRequest;
 use App\Services\ImageService;
+use Illuminate\Support\Facades\Storage;
 
 
 class ImageController extends Controller
@@ -109,15 +110,29 @@ class ImageController extends Controller
         'status' => 'info']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
-        //
+        $image = Image::findOrFail($id);
+        /*202501エラー
+            Too few arguments to function Illuminate\Database\Eloquent\Builder::findOrFail(), 0 passed in /src/vendor/laravel/framework/src/Illuminate/Support/Traits/ForwardsCalls.php on line 23 and at least 1 expected
+
+            エラー原因：findOrFail()に引数外というエラー
+            解決方法：引数に値を入力
+            参考サイト:https://qiita.com/Aiga/items/9e596f198a7f09944e27
+        */
+        $filePath = 'public/peoducts/' . $image->filename;
+
+        if(Storage::exists($filePath)){
+            //exits(引数)は引数のファイルが存在しているかの確認(Stroageまとめ[https://qiita.com/suzu12/items/9f43f9bddc735dbbfa07])
+            Storage::delete($filePath);
+            //delete(引数)は引数を削除する
+        }
+
+        Image::findOrFail($id)->delete();//ソフトデリート(論理削除)：復元可能な削除
+
+        return redirect()
+        ->route('owner.images.index')
+        ->with(['message' => '画像を削除しました。', 'status' => 'alert']);
     }
 }
 // php artisan make:controller Owner/ImageController --resource で作成
