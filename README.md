@@ -1,4 +1,6 @@
-## Resource Contoroller
+## インストール方法
+
+## インストール後の実施事項
 
 
 ### リソースコントローラの作成
@@ -6,7 +8,7 @@
   $ php artisan make:controller Admin/OwnersController --resource
 ```
 
-### シーダー(ダミーデータ)作成
+### Seed(ダミーデータ)作成
 ```
   $ php artisan make:seeder AdminSeeder
   $ php artisan make:seeder OwnerSeeder
@@ -36,6 +38,20 @@
       $ php artisan migrate:fresh ̶seed
     ```
     全テーブル削除してup()を実行
+
+### Seed(画像のダミーデータ)作成
+画像のダミーデータは
+public/imagesフォルダ内に
+sample1.jpg ~ sample6.jpg として保存。
+
+php artisan storage:link
+storageフォルダにリンク後、
+
+storage/app/public/productsフォルダ内に保存すると表示する
+(productsフォルダがない場合は作成)
+
+
+
 
 ### Carbon
   PHPのDateTimeクラスを拡張した
