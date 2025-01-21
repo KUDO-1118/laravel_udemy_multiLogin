@@ -3,13 +3,15 @@
 namespace App\Http\Controllers\Owner;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 use App\Models\PrimaryCategory;
+use App\Models\Stock;
 use App\Models\Owner;
 use App\Models\Image;
 use App\Models\Shop;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -72,7 +74,55 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        // dd($request);
+        $request->validate([
+            'name' => 'required|string|max:50',
+            'information' => 'required|string|max:1000',
+            'price' => 'required|integer',
+            'sort_order' => 'nullable|integer',
+            'quantity' => 'required|integer',
+            'shop_id' => 'required|exists:shops,id',
+            'secondary_category_id' => 'required|exists:secondary_categories,id',
+            'image1' => 'nullable|exists:images,id',
+            'image2' => 'nullable|exists:images,id',
+            'image3' => 'nullable|exists:images,id',
+            'image4' => 'nullable|exists:images,id',
+            'is_selling' => 'required',
+        ]);
+
+        // dd($request->all());
+
+        try{
+            DB::transaction(function () use($request) {
+                $product = Product::create([
+                    'name' => $request->name,//必ず無名関数でuse($request)が必要
+                    'information' => $request->information,//必ず無名関数でuse($request)が必要
+                    'price' => $request->price,
+                    'sort_order' => $request->sort_order,
+                    'shop_id' => $request->shop_id,
+                    'secondary_category_id' => $request->secondary_category_id,
+                    'image1' => $request->image1,
+                    'image2' => $request->image2,
+                    'image3' => $request->image3,
+                    'image4' => $request->image4,
+                    'is_selling' => $request-> is_selling
+                ]);
+
+                Stock::create([
+                    'product_id' => $product->id,
+                    'type' => 1,
+                    'quantity' => $request->quantity,
+
+                ]);
+            }, 2);//引数に2を設定すると2回繰り返してくれる
+        }catch(Throwable $e){
+            Log::error($e);
+            throw $e;
+        }
+
+        return redirect()
+        ->route('owner.products.index')
+        ->with(['message' => '商品を登録しました。', 'status' => 'info']);
     }
 
     /**

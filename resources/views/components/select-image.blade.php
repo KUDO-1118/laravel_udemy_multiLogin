@@ -42,7 +42,7 @@
 <div class="flex justify-around items-center mb-4">
   <a class="py-2 px-4 bg-gray-200" data-micromodal-trigger="{{ $modal }}" href='javascript:;'>ファイルを選択</a>
   <div class="w-1/4">
-    <img id="{{ $name }}_thumnail" src="">
+    <img id="{{ $name }}_thumbnail" src="">
   </div>
 </div>
 <input id="{{ $name }}_hidden" type="hidden" name="{{ $name }}" value="">

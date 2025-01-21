@@ -58,7 +58,7 @@
                         <div class="p-2 w-1/2 mx-auto">
                           <div class="relative">
                             <label for="category" class="leading-7 text-sm text-gray-600">カテゴリー</label>
-                            <select name="category" id="category" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            <select name="secondary_category_id" id="secondary_category_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-yellow-500 focus:bg-white focus:ring-2 focus:ring-yellow-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
                               @foreach($categories as $category)
                                 <optgroup label="{{ $category->name }}">
                                   @foreach($category->secondary as $secondary)
@@ -104,7 +104,7 @@
           const modal = e.target.dataset.modal
 
           //サムネイルとinput type=hiddenのvalueに設定
-          document.getElementById(imageName + '_thumnaile').src = imagePath + '/' + imageFile
+          document.getElementById(imageName + '_thumbnail').src = imagePath + '/' + imageFile
           document.getElementById(imageName + '_hidden').value = imageId
           MicroModal.close(modal);//モーダルを閉じる
         })

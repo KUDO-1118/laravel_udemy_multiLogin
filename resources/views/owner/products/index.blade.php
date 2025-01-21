@@ -19,7 +19,7 @@
                         <a href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
                             {{--  ↑ボタンを押下した時に編集画面に遷移する(editを用いるときは必ずパラメータも必要) --}}
                           <div class="border rounded-md p-2 md:p-4">{{--md:p-4はmdだったらp-4にする--}}
-                            <x-thumbnail :filename="$product->imageFirst->filename" type="products" />
+                            <x-thumbnail filename="{{$product->imageFirst->filename ?? ''}}" type="products" />
                             {{-- <div class="text-gray-700">{{ $product->name }}</div> --}}
                           </div>
                         </a>
