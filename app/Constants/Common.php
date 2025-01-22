@@ -12,3 +12,4 @@ class Common
     'reduce' => self::PRODUCT_REDUCE
   ];
 }
+//使用時はuseを使わず\Constant::PRODUCT_LIST['add']
