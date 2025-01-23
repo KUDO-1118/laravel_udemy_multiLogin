@@ -14,6 +14,7 @@
                   <button onclick="location.href='{{ route('owner.products.create') }}'" class="text-black bg-yellow-500 border-0 py-2 px-8 focus:outline-none hover:bg-yellow-600 rounded text-lg">新規登録する</button>
                 </div>
                 <div class="flex flex-wrap">
+                  @foreach($ownerInfo as $owner)
                     @foreach($ownerInfo->shop->product as $product)
                       <div class="w-1/4 p-2 md:p-4">
                         <a href="{{ route('owner.products.edit', ['product' => $product->id]) }}">
@@ -25,6 +26,7 @@
                         </a>
                       </div>
                     @endforeach
+                  @endforeach
                 </div>
                 {{-- {{ $products->links() }} --}}
               </div>
