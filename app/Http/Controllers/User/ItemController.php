@@ -44,7 +44,8 @@ class ItemController extends Controller
 
     public function show($id)
     {
-        $product = Product::findOrFail($id);
+        $product = Product::with(['imageFirst', 'imageSecond', 'imageThird', 'imageFourth'])->findOrFail($id);
+        // dd($product);
 
         return view('user.show', compact('product'));
     }

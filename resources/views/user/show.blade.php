@@ -11,7 +11,53 @@
               <div class="p-6 bg-white border-b border-gray-200">
                   <div class="md:flex md:justify-around">
                     <div class="md:w-1/2">
-                      <x-thumbnail filename="{{$product->imageFirst->filename ?? ''}}" type="products" />
+                      <!-- Slider main container -->
+                      <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                          <!-- Slides -->
+                          <div class="swiper-slide">
+                            @if($product->imageFirst && $product->imageFirst->filename)
+                                <img src="{{ asset('storage/products/' . $product->imageFirst->filename) }}">
+                            @else
+                                <img src="{{ asset('storage/no-image.png') }}">  <!-- 画像がない場合のデフォルト -->
+                            @endif
+                        </div>
+
+                        <div class="swiper-slide">
+                            @if($product->imageSecond && $product->imageSecond->filename)
+                                <img src="{{ asset('storage/products/' . $product->imageSecond->filename) }}">
+                            @else
+                                <img src="{{ asset('storage/no-image.png') }}">
+                            @endif
+                        </div>
+
+                        <div class="swiper-slide">
+                            @if($product->imageThird && $product->imageThird->filename)
+                                <img src="{{ asset('storage/products/' . $product->imageThird->filename) }}">
+                            @else
+                                <img src="{{ asset('storage/no-image.png') }}">
+                            @endif
+                        </div>
+
+                        <div class="swiper-slide">
+                            @if($product->imageFourth && $product->imageFourth->filename)
+                                <img src="{{ asset('storage/products/' . $product->imageFourth->filename) }}">
+                            @else
+                                <img src="{{ asset('storage/no-image.png') }}">
+                            @endif
+                        </div>
+                        </div>
+                        <!-- If we need pagination -->
+                        <div class="swiper-pagination"></div>
+
+                        <!-- If we need navigation buttons -->
+                        <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div>
+
+                        <!-- If we need scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                      </div>
                     </div>
                     <div class="md:w-1/2 ml-4">
                       <h2 class="mb-4 text-sm title-font text-gray-500 tracking-widest">{{ $product->category->name }}</h2>
@@ -40,4 +86,5 @@
           </div>
       </div>
   </div>
+  <script src="{{ mix('js/swiper.js') }}"></script>
 </x-app-layout>

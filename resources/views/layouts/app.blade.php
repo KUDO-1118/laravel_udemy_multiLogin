@@ -15,6 +15,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- defer：遅れて読み込む --}}
     </head>
 
     <body class="font-sans antialiased">
