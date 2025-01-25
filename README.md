@@ -50,8 +50,9 @@ storageフォルダにリンク後、
 storage/app/public/productsフォルダ内に保存すると表示する
 (productsフォルダがない場合は作成)
 
-
-
+ショップの画像も表示する場合は、
+storage/app/public/shopsフォルダを作成し
+画像を保存してください
 
 ### Carbon
   PHPのDateTimeクラスを拡張した
