@@ -8,6 +8,7 @@ use App\Models\Shop;
 use App\Models\SecondaryCategory;
 use App\Models\Image;
 use App\Models\Stock;
+use App\Models\User;
 
 class Product extends Model
 {
@@ -73,5 +74,11 @@ class Product extends Model
         (カラム名と同じメソッドは指定できないので名称変更)
         第２引数で_id がつかない場合は 第３引数で指定必要
     */
+
+
+    public function user()
+    {
+        return $this->belongsToMany(User::class, 'carts')->withPivot(['id', 'quantity']);
+    }
 }
 
