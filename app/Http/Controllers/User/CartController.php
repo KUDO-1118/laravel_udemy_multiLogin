@@ -6,6 +6,7 @@ require_once base_path('vendor/autoload.php');
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Cart;
+use App\Models\Stock;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use Stripe\Stripe;
@@ -63,21 +64,38 @@ class CartController extends Controller
 
         $lineItems = [];
         foreach($products as $product){
-            $lineItem = [
-                'price_data' => [
-                    'currency' => 'jpy',
-                    'product_data' => [
-                        'name' => $product->name,
-                        'description' => $product->information,
+            $quantity = '';
+            $quantity = Stock::where('product_id', $product->id)->sum('quantity');
+
+            if($product->pivot->quantity > $quantity){ //在庫確認する
+                return redirect()->route('user.cart.index');
+            } else {
+                $lineItem = [
+                    'price_data' => [
+                        'currency' => 'jpy',
+                        'product_data' => [
+                            'name' => $product->name,
+                            'description' => $product->information,
+                        ],
+                        'unit_amount' => $product->price,
                     ],
-                    'unit_amount' => $product->price,
-                ],
-                'quantity' => $product->pivot->quantity
-            ];
-            array_push($lineItems, $lineItem);
+                    'quantity' => $product->pivot->quantity
+                ];
+                array_push($lineItems, $lineItem);
+            }
         }
 
-        // dd($lineItems);
+
+        foreach($products as $product)
+        {
+            Stock::create([
+                'product_id' => $product->id,
+                'type' => \Constant::PRODUCT_LIST['reduce'],
+                'quantity' => $product->pivot->quantity * -1
+            ]);
+        }
+        dd('test');
+
         \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
 
         $session = \Stripe\Checkout\Session::create([
@@ -87,7 +105,7 @@ class CartController extends Controller
             'success_url' => route('user.items.index'),
             'cancel_url' => route('user.cart.index')
         ]);
-        dd($session);
+        // dd($session);
 
         $publicKey = env('STRIPE_PUBLIC_KEY');
 

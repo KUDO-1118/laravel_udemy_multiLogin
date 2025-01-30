@@ -2391,3 +2391,6 @@
 172.18.0.1 - - [30/Jan/2025:08:07:44 +0000] "GET /cart/checkout HTTP/1.1" 500 828530 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 172.18.0.1 - - [30/Jan/2025:08:17:10 +0000] "GET /cart/checkout HTTP/1.1" 500 834567 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
 172.18.0.1 - - [30/Jan/2025:08:17:59 +0000] "GET /cart/checkout HTTP/1.1" 500 109837 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+172.18.0.1 - - [30/Jan/2025:09:55:25 +0000] "GET /cart/checkout HTTP/1.1" 500 928214 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+172.18.0.1 - - [30/Jan/2025:09:55:25 +0000] "GET /_ignition/health-check HTTP/1.1" 200 40 "http://localhost/cart/checkout" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+172.18.0.1 - - [30/Jan/2025:09:56:14 +0000] "GET /cart/checkout HTTP/1.1" 500 16755 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
