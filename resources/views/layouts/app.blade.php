@@ -15,15 +15,32 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
+        {{-- defer：遅れて読み込む --}}
     </head>
 
     <body class="font-sans antialiased">
+        {{-- まずURLから、現在URIのプレフィックスを取得 --}}
+        @php
+            $uriPrefix = substr(url()->current(), strlen(url('/'))+1 );
+            $uriPrefix = explode('/', $uriPrefix)[0];
+            dump($uriPrefix);
+        @endphp
         <div class="min-h-screen bg-gray-100">
-            @if(auth('admin')->user())
+
+            {{-- @if (auth('admin')->user())
                 @include('layouts.admin-navigation')
-            @elseif(auth('owners')->user())
+            @elseif (auth('owners')->user())
                 @include('layouts.owner-navigation')
-            @elseif(auth('users')->user())
+            @elseif (auth('users')->user())
+                @include('layouts.user-navigation')
+            @endif --}}
+
+            {{-- 現在URLのプレフィックスで判別 --}}
+            @if ($uriPrefix === 'admin')
+                @include('layouts.admin-navigation')
+            @elseif ($uriPrefix === 'owner')
+                @include('layouts.owner-navigation')
+            @else
                 @include('layouts.user-navigation')
             @endif
 
