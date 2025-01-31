@@ -8,7 +8,7 @@
     stripe.redirectToCheckout({
       sessionId: '{{ $session->id }}'//CartControllerの$session情報が入ってくる
     }).then(function(result) {//NGだった場合の処理
-      window.location.href = '{{  route('user.cart.index')}}';
+      window.location.href = '{{  route('user.cart.cancel')}}';
     });
   }
 </script>
