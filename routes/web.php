@@ -49,3 +49,4 @@ Route::get('/serveicecontainertest', [LifeCycleTestController::class, 'showServi
 Route::get('/serveiceprovidertest', [LifeCycleTestController::class, 'showServiceProviderTest']);
 
 require __DIR__.'/auth.php';
+

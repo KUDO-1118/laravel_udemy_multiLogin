@@ -42,6 +42,7 @@ storage/app/public/productsフォルダ内に 保存すると表示されます�
   $ php artisan make:controller Admin/OwnersController --resource
 ```
 
+
 ### Seed(ダミーデータ)作成
 ```
   $ php artisan make:seeder AdminSeeder
